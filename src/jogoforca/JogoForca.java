@@ -5,6 +5,7 @@
  */
 package jogoForca;
 
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -13,7 +14,7 @@ import java.util.Scanner;
  */
 public class JogoForca {
     public static void main(String[] args) {
-        String palavra = "Macarrao";
+        String palavra = sorteiaPalavra();
         String letrasUtilizadas = "", letrasDescartadas = "";
         desenhaHumano(0);
         desenhaCampo(palavra, "");
@@ -33,7 +34,8 @@ public class JogoForca {
             }
             if(!possuiLetra) {
                 letrasDescartadas += letra;
-                desenhaHumano(0);
+                tentativas++;
+                desenhaHumano(tentativas);
             }
             if(ganhou(palavra, letrasUtilizadas)) {
                 System.out.println("Você ganhou! Parabéns!");
@@ -44,6 +46,30 @@ public class JogoForca {
             }
         }
     }
+    
+    public static String sorteiaPalavra (){
+        Random gerador = new Random();
+        
+        int nPalavra = gerador.nextInt(10);    
+        
+        String[] palavras = new String[10];
+        
+        palavras[0] = "arroz";
+        palavras[1] = "fabrica";
+        palavras[2] = "algoritimo";
+        palavras[3] = "computador";
+        palavras[4] = "logica";
+        palavras[5] = "programacao";
+        palavras[6] = "bacon";
+        palavras[7] = "senac";
+        palavras[8] = "sao paulo";
+        palavras[9] = "tecnologia";
+        
+        String palavra = palavras[nPalavra];
+        return palavra;
+    }
+    
+    
     
     public static void desenhaCampo (String palavraInicial, String letrasValidadas) {
         String campo = "";
@@ -106,6 +132,139 @@ public class JogoForca {
                 desenho += " ||\n";
                 desenho += " ||\n";
                 desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += "/||\\";
+                break;
+            case 1:
+                desenho += " ||=========||\n";
+                 desenho += " ||     .-\"\"\"\"\"\"\"-. \n";
+                desenho += " || /^\\/  _.   _.  \\/^\\\n";
+                desenho += " || \\(   /__\\ /__\\   )/\n";
+                desenho += " ||  \\,  \\o_/_\\o_/  ,/\n";
+                desenho += " ||    \\    (_)    /\n";
+                desenho += " ||     `-.'==='.-' \n";
+                desenho += " ||      __) - (__\n";
+                desenho += " ||         `~~~` \n";
+                desenho += " ||       /     \\\n";
+                desenho += " ||      :       ;\n";
+                desenho += " ||      |==(*)==|\n";
+                desenho += " ||      :       :\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += "/||\\";
+                break;
+            case 2:
+                desenho += " ||=========||\n";
+                 desenho += " ||     .-\"\"\"\"\"\"\"-. \n";
+                desenho += " || /^\\/  _.   _.  \\/^\\\n";
+                desenho += " || \\(   /__\\ /__\\   )/\n";
+                desenho += " ||  \\,  \\o_/_\\o_/  ,/\n";
+                desenho += " ||    \\    (_)    /\n";
+                desenho += " ||     `-.'==='.-' \n";
+                desenho += " ||      __) - (__\n";
+                desenho += " ||     /  `~~~`\n";
+                desenho += " ||    / //     \\\n";
+                desenho += " ||   / /:       ;\n";
+                desenho += " ||  / / |==(*)==|\n";
+                desenho += " || ///\\ :       :\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += "/||\\";
+                break;
+            case 3:
+                desenho += " ||=========||\n";
+                 desenho += " ||     .-\"\"\"\"\"\"\"-. \n";
+                desenho += " || /^\\/  _.   _.  \\/^\\\n";
+                desenho += " || \\(   /__\\ /__\\   )/\n";
+                desenho += " ||  \\,  \\o_/_\\o_/  ,/\n";
+                desenho += " ||    \\    (_)    /\n";
+                desenho += " ||     `-.'==='.-' \n";
+                desenho += " ||      __) - (__\n";
+                desenho += " ||     /  `~~~`  \\\n";
+                desenho += " ||    / //     \\\\ \\\n";
+                desenho += " ||   / /:       ;\\ \\\n";
+                desenho += " ||  / / |==(*)==| \\ \\\n";
+                desenho += " || ///\\ :       : /\\\\\\\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += "/||\\";
+                break;
+            case 4:
+                desenho += " ||=========||\n";
+                 desenho += " ||     .-\"\"\"\"\"\"\"-. \n";
+                desenho += " || /^\\/  _.   _.  \\/^\\\n";
+                desenho += " || \\(   /__\\ /__\\   )/\n";
+                desenho += " ||  \\,  \\o_/_\\o_/  ,/\n";
+                desenho += " ||    \\    (_)    /\n";
+                desenho += " ||     `-.'==='.-' \n";
+                desenho += " ||      __) - (__\n";
+                desenho += " ||     /  `~~~`  \\\n";
+                desenho += " ||    / //     \\\\ \\\n";
+                desenho += " ||   / /:       ;\\ \\\n";
+                desenho += " ||  / / |==(*)==| \\ \\\n";
+                desenho += " || ///\\ :       : /\\\\\\\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += "/||\\";
+                break;
+            case 5:
+                desenho += " ||=========||\n";
+                desenho += " ||     .-\"\"\"\"\"\"\"-. \n";
+                desenho += " || /^\\/  _.   _.  \\/^\\\n";
+                desenho += " || \\(   /__\\ /__\\   )/\n";
+                desenho += " ||  \\,  \\o_/_\\o_/  ,/\n";
+                desenho += " ||    \\    (_)    /\n";
+                desenho += " ||     `-.'==='.-' \n";
+                desenho += " ||      __) - (__\n";
+                desenho += " ||         `~~~` \n";
+                desenho += " ||     /  `~~~`  \\\n";
+                desenho += " ||    / //     \\\\ \\\n";
+                desenho += " ||   / /:       ;\\ \\\n";
+                desenho += " ||  / / |==(*)==| \\ \\\n";
+                desenho += " || ///\\ :       : /\\\\\\\n";
+                desenho += " ||       \\  |\n";
+                desenho += " ||     ___)=|\n";
+                desenho += " ||    {____/\n";
+                desenho += "/||\\";
+                break;
+            case 6:
+                desenho += " ||=========||\n";
+                desenho += " ||     .-\"\"\"\"\"\"\"-. \n";
+                desenho += " || /^\\/  _.   _.  \\/^\\\n";
+                desenho += " || \\(   /\\_/\\ /\\_/\\   )/\n";
+                desenho += " ||  \\,  \\/_\\/_\\/_\\/  ,/\n";
+                desenho += " ||    \\    (_)    /\n";
+                desenho += " ||     `-.'==='.-' \n";
+                desenho += " ||      __) - (__\n";
+                desenho += " ||     /  `~~~`  \\ \n";
+                desenho += " ||    / //     \\\\ \\ \n";
+                desenho += " ||   / /:       ;\\ \\ \n";
+                desenho += " ||  / / |==(*)==| \\ \\ \n";
+                desenho += " || ///\\ :       : /\\\\\\ \n";
+                desenho += " ||       \\  |  / \n";
+                desenho += " ||     ___)=|=(___\n";
+                desenho += " ||    {____/ \\____} \n";
                 desenho += " ||\n";
                 desenho += "/||\\";
                 break;
