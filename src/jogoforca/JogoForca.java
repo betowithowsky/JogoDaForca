@@ -16,12 +16,10 @@ public class JogoForca {
     public static void main(String[] args) {
         String palavra = sorteiaPalavra();
         String letrasUtilizadas = "", letrasDescartadas = "";
-        desenhaHumano(0);
-        desenhaCampo(palavra, "");
+        //desenhaHumano(0);
         int tentativas = 0;
         while (true) {   
-            char letra = digitarLetra(letrasUtilizadas, letrasDescartadas);
-        
+            char letra = ' ';
             boolean possuiLetra = false;
 
             for (int i = 0; i < palavra.length(); i++) {
@@ -30,20 +28,22 @@ public class JogoForca {
                     desenhaCampo(palavra, letrasUtilizadas);
                     possuiLetra = true;
                     break;
-    }
+                }
             }
             if(!possuiLetra) {
                 letrasDescartadas += letra;
-                tentativas++;
                 desenhaHumano(tentativas);
+                tentativas++;
             }
             if(ganhou(palavra, letrasUtilizadas)) {
                 System.out.println("Você ganhou! Parabéns!");
                 break;
-            } else if(tentativas >= 6) {
+            } else if(tentativas >= 7) {
                 System.out.println("Você perdeu! Tente novamente!");
                 break;
             }
+            desenhaCampo(palavra, "");
+            letra = digitarLetra(letrasUtilizadas, letrasDescartadas);
         }
     }
     
@@ -85,7 +85,7 @@ public class JogoForca {
                 }
             }
             if(!validado)
-            campo += " _ ";
+                campo += " _ ";
         }
         System.out.println("Palavra: " + campo);
     }
@@ -97,7 +97,7 @@ public class JogoForca {
         letrasUtilizadas = letrasUtilizadas.toUpperCase();
         
         while (true) {            
-            System.out.println("Digite uma letra: ");
+            System.out.print("Digite uma letra: ");
             letra = console.nextLine().toUpperCase().charAt(0);
             
             boolean letraUsada = false;
@@ -106,7 +106,7 @@ public class JogoForca {
                     System.out.println("A letra " + letra + " já foi utilizada. Tente novamente.");
                     letraUsada = true;
                     break;
-    }
+                }
             }
             if(!letraUsada) {
                 for (int i = 0; i < letrasDescartadas.length(); i++) {
@@ -117,7 +117,7 @@ public class JogoForca {
                     }
                 }
             }
-    
+            
             if(!letraUsada)
                 break;
         }
@@ -155,12 +155,12 @@ public class JogoForca {
                 desenho += " ||  \\,  \\o_/_\\o_/  ,/\n";
                 desenho += " ||    \\    (_)    /\n";
                 desenho += " ||     `-.'==='.-' \n";
-                desenho += " ||      __) - (__\n";
-                desenho += " ||\n";
-                desenho += " ||\n";
-                desenho += " ||\n";
-                desenho += " ||\n";
-                desenho += " ||\n";
+                desenho += " ||               \n";
+                desenho += " ||               \n";
+                desenho += " ||               \n";
+                desenho += " ||               \n";
+                desenho += " ||               \n";
+                desenho += " ||               \n";
                 desenho += " ||\n";
                 desenho += " ||\n";
                 desenho += " ||\n";
@@ -168,26 +168,6 @@ public class JogoForca {
                 desenho += "/||\\";
                 break;
             case 2:
-                desenho += " ||=========||\n";
-                desenho += " ||     .-\"\"\"\"\"\"\"-. \n";
-                desenho += " || /^\\/  _.   _.  \\/^\\\n";
-                desenho += " || \\(   /__\\ /__\\   )/\n";
-                desenho += " ||  \\,  \\o_/_\\o_/  ,/\n";
-                desenho += " ||    \\    (_)    /\n";
-                desenho += " ||     `-.'==='.-' \n";
-                desenho += " ||      __) - (__\n";
-                desenho += " ||         `~~~` \n";
-                desenho += " ||       /     \\\n";
-                desenho += " ||      :       ;\n";
-                desenho += " ||      |==(*)==|\n";
-                desenho += " ||      :       :\n";
-                desenho += " ||\n";
-                desenho += " ||\n";
-                desenho += " ||\n";
-                desenho += " ||\n";
-                desenho += "/||\\";
-                break;
-            case 3:
                 desenho += " ||=========||\n";
                 desenho += " ||     .-\"\"\"\"\"\"\"-. \n";
                 desenho += " || /^\\/  _.   _.  \\/^\\\n";
@@ -208,9 +188,29 @@ public class JogoForca {
                 desenho += " ||\n";
                 desenho += "/||\\";
                 break;
+            case 3:
+                desenho += " ||=========||\n";
+                 desenho += " ||     .-\"\"\"\"\"\"\"-. \n";
+                desenho += " || /^\\/  _.   _.  \\/^\\\n";
+                desenho += " || \\(   /__\\ /__\\   )/\n";
+                desenho += " ||  \\,  \\o_/_\\o_/  ,/\n";
+                desenho += " ||    \\    (_)    /\n";
+                desenho += " ||     `-.'==='.-' \n";
+                desenho += " ||      __) - (__\n";
+                desenho += " ||     /  `~~~`  \\\n";
+                desenho += " ||    / //     \\\\ \\\n";
+                desenho += " ||   / /:       ;\\ \\\n";
+                desenho += " ||  / / |==(*)==| \\ \\\n";
+                desenho += " || ///\\ :       : /\\\\\\\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += " ||\n";
+                desenho += "/||\\";
+                break;
             case 4:
                 desenho += " ||=========||\n";
-                desenho += " ||     .-\"\"\"\"\"\"\"-. \n";
+                 desenho += " ||     .-\"\"\"\"\"\"\"-. \n";
                 desenho += " || /^\\/  _.   _.  \\/^\\\n";
                 desenho += " || \\(   /__\\ /__\\   )/\n";
                 desenho += " ||  \\,  \\o_/_\\o_/  ,/\n";
@@ -255,7 +255,7 @@ public class JogoForca {
                 desenho += " || \\(    X    X     )/\n";
                 desenho += " ||  \\,            ,/\n";
                 desenho += " ||    \\    (_)    /\n";
-                desenho += " ||     `-.,===,.-'\n";
+                desenho += " ||     `-..===..-' \n";
                 desenho += " ||      __) - (__\n";
                 desenho += " ||     /  `~~~`  \\ \n";
                 desenho += " ||    / //     \\\\ \\ \n";
@@ -279,7 +279,7 @@ public class JogoForca {
             for (int j = 0; j < letrasUtilizadas.length(); j++) {
                 if(palavra.charAt(i) == letrasUtilizadas.charAt(j))
                     letrasConfirmadas++;
-}
+            }
         }
         if(letrasConfirmadas >= palavra.length())
             return true;
