@@ -5,6 +5,8 @@
  */
 package jogoforca;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -13,8 +15,11 @@ import java.util.Scanner;
  * @author yuri.jwsilva
  */
 public class JogoForca {
-    public static void main(String[] args) {
-        String palavra = sorteiaPalavra();
+    static Random gerador = new Random();
+    public static void main(String[] args){
+        String palavra = sorteiaPalavra();  
+        String dica = daDica();
+        
         String letrasUtilizadas = "", letrasDescartadas = "";
         //desenhaHumano(0);
         int tentativas = 0;
@@ -47,29 +52,71 @@ public class JogoForca {
         }
     }
     
-    public static String sorteiaPalavra (){
-        Random gerador = new Random();
+    
+    public static String[] sorteiaPalavra (){ 
         
-        int nPalavra = gerador.nextInt(10);    
+        int nPalavra = gerador.nextInt(10);            
         
-        String[] palavras = new String[10];
+        String[][] palavras = new String[10][10];
         
-        palavras[0] = "arroz";
-        palavras[1] = "fabrica";
-        palavras[2] = "algoritimo";
-        palavras[3] = "computador";
-        palavras[4] = "logica";
-        palavras[5] = "programacao";
-        palavras[6] = "bacon";
-        palavras[7] = "senac";
-        palavras[8] = "sao paulo";
-        palavras[9] = "tecnologia";
+        palavras[0][0] = "arroz";
+        palavras[0][1] = "alimento"; //dica
         
-        String palavra = palavras[nPalavra];
-        return palavra;
+        palavras[1][0] = "violino";
+        palavras[1][1] = "instrumento musical";//dica
+        
+        palavras[2][0] = "bicicleta";
+        palavras[2][1] = "meio de transporte";//dica
+        
+        palavras[3][0] = "programador";
+        palavras[3][1] = "profissao";
+        
+        palavras[4][0] = "programacao";
+        palavras[4][1] = "bacon";
+        
+        palavras[5][0] = "senac";
+        palavras[5][1] = "tecnologia";
+        
+        palavras[6][0] = "recife";
+        palavras[6][1] = "cidade";
+        
+        palavras[7][0] = "pandeiro";
+        palavras[7][1] = "instrumento musical";
+        
+        palavras[8][0] = "melancia";
+        palavras[8][1] = "Fruta";
+        
+        palavras[9][0] = "veterinario";
+        palavras[9][1] = "profissão";        
+        
+        String[] palavraEdica = new String[2];
+        palavraEdica[0] = palavras[nPalavra][0];
+        palavraEdica[1] = palavras[nPalavra][1];
+
+        return palavraEdica; 
     }
     
-    
+    public static String daDica(){
+        
+        int nDica = gerador.nextInt(10);
+        
+        String[] dicas = new String[10];
+        
+        dicas[0] = "comida";
+        dicas[1] = "dica2";
+        dicas[2] = "dica3";
+        dicas[3] = "dica4";
+        dicas[4] = "dica5";
+        dicas[5] = "";
+        dicas[6] = "";
+        dicas[7] = "";
+        dicas[8] = "";
+        dicas[9] = "";
+        
+        String dica = dicas[nDica];
+        System.out.println("Dica: " + dica);
+        return dica;
+    }
     
     public static void desenhaCampo (String palavraInicial, String letrasValidadas) {
         String campo = "";
